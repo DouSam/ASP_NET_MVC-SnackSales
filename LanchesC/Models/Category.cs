@@ -10,5 +10,7 @@ namespace LanchesC.Models
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
+
+        public List<Lanche> Lanches { get; set; }
     }
 }
