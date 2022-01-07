@@ -20,7 +20,7 @@ namespace LanchesC.Models
         [Display(Name = "Snack short description")]
         [MinLength(20, ErrorMessage = "Shot description must have minimal {1} characters.")]
         [MaxLength(200, ErrorMessage = "Short description cannot exceed {1} characters.")]
-        public string ShotDescription { get; set; }
+        public string ShortDescription { get; set; }
 
         [Required(ErrorMessage = "The {0} must be informed.")]
         [Display(Name = "Detailed description")]
