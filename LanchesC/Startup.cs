@@ -26,7 +26,9 @@ namespace LanchesC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), builder =>
+                        builder.MigrationsAssembly("LanchesC")
+));
             services.AddControllersWithViews();
         }
 
