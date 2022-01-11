@@ -1,4 +1,6 @@
 ﻿using LanchesC.Models;
+using LanchesC.Models.ViewModels;
+using LanchesC.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,16 +13,32 @@ namespace LanchesC.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ISnackRepository _snackRepository;
+
+        public HomeController(ISnackRepository snackRepository)
         {
-            ViewData["Title"] = "Index";
-            return View();
+            _snackRepository = snackRepository;
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Index()
+        {
+            var homeViewModel = new HomeViewModel
+            {
+                PreferredSnacks = _snackRepository.PreferredSnacks
+            };
+
+            return View(homeViewModel);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None,
+            NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id
+                ?? HttpContext.TraceIdentifier
+            });
         }
     }
 }
