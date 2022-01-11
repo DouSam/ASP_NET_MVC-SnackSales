@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LanchesC.Repositories.Interfaces;
 using LanchesC.Repositories;
+using Microsoft.AspNetCore.Http;
 
 namespace LanchesC
 {
@@ -33,8 +34,12 @@ namespace LanchesC
 
             services.AddTransient<ISnackRepository, SnackRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddControllersWithViews();
+
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +59,8 @@ namespace LanchesC
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 
