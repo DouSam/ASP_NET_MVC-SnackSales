@@ -1,0 +1,14 @@
+﻿@model SnackListViewModel
+
+<div>
+    <h2>@Model.ActualCategory</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var snack in Model.Snacks)
+        {
+            <partial name="_SnackDisplay" for="@snack" />
+        }
+    </div>
+</div>

@@ -30,6 +30,7 @@ namespace LanchesC
             services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), builder =>
                         builder.MigrationsAssembly("LanchesC")));
+
             services.AddTransient<ISnackRepository, SnackRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
 
