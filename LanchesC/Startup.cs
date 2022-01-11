@@ -1,19 +1,14 @@
 using LanchesC.Data;
+using LanchesC.Models;
+using LanchesC.Repositories;
+using LanchesC.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using LanchesC.Repositories.Interfaces;
-using LanchesC.Repositories;
-using Microsoft.AspNetCore.Http;
-using LanchesC.Models;
 
 namespace LanchesC
 {
