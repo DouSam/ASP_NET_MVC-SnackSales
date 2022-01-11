@@ -30,6 +30,7 @@ namespace LanchesC
 
             services.AddTransient<ISnackRepository, SnackRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => Cart.GetCart(sp));
 
