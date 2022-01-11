@@ -11,7 +11,7 @@ namespace LanchesC.Repositories
 
         public CategoryRepository(AppDbContext context)
         {
-            _context = context; 
+            _context = context;
         }
 
         public IEnumerable<Category> Categories => _context.Categorys;

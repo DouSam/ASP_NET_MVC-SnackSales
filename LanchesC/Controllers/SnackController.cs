@@ -2,10 +2,8 @@
 using LanchesC.Models.ViewModels;
 using LanchesC.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LanchesC.Controllers
 {
@@ -43,6 +41,12 @@ namespace LanchesC.Controllers
             };
 
             return View(snacksListViewModel);
+        }
+
+        public IActionResult Details(int snackId)
+        {
+            var snack = _snackRepository.Snacks.FirstOrDefault(l => l.SnackId == snackId);
+            return View(snack);
         }
     }
 }

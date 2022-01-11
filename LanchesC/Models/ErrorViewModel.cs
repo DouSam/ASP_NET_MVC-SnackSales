@@ -1,5 +1,3 @@
-using System;
-
 namespace LanchesC.Models
 {
     public class ErrorViewModel
