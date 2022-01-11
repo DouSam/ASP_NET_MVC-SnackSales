@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using LanchesC.Repositories.Interfaces;
 using LanchesC.Repositories;
 using Microsoft.AspNetCore.Http;
+using LanchesC.Models;
 
 namespace LanchesC
 {
@@ -35,6 +36,7 @@ namespace LanchesC
             services.AddTransient<ISnackRepository, SnackRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => Cart.GetCart(sp));
 
             services.AddControllersWithViews();
 
