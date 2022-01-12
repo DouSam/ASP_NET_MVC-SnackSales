@@ -2,9 +2,6 @@
 using LanchesC.Models;
 using LanchesC.Repositories.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LanchesC.Repositories
 {
@@ -27,7 +24,7 @@ namespace LanchesC.Repositories
 
             var cartItens = _cart.CartItems;
 
-            foreach(var cartItem in cartItens)
+            foreach (var cartItem in cartItens)
             {
                 var orderDetail = new OrderDetail()
                 {
